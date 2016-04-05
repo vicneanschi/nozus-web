@@ -18,7 +18,7 @@ module.exports.policies = {
     },
 
     PingController: {
-        '*': 'hasToken',
+        '*': true,
         'protected': 'isAuthenticated'
     }
 

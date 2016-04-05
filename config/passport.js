@@ -23,7 +23,8 @@ var AUDIENCE = "nozus.com";
 var LOCAL_STRATEGY_CONFIG = {
     usernameField: 'email',
     passwordField: 'password',
-    passReqToCallback: false
+    passReqToCallback: false,
+    session: false
 };
 
 /**
@@ -35,7 +36,8 @@ var JWT_STRATEGY_CONFIG = {
     secretOrKey: SECRET,
     issuer : ISSUER,
     audience: AUDIENCE,
-    passReqToCallback: false
+    passReqToCallback: false,
+    session: false
 };
 
 /**
