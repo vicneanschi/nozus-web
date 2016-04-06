@@ -11,15 +11,23 @@
 
 module.exports.policies = {
 
-    '*': ['isAuthenticated'],
+    '*': [
+        'isAuthenticated',
+        'ownerPolicy'
+    ],
 
     AuthController: {
         '*': true
     },
 
-    PingController: {
-        '*': true,
-        'protected': 'isAuthenticated'
+    MealController: {
+        'read': false
+
+    },
+
+    UserController: {
+        '*' : 'isAdmin',
+        'me': 'isAuthenticated'
     }
 
     /***************************************************************************

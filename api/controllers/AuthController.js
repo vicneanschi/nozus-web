@@ -53,24 +53,7 @@ module.exports = {
         passport.authenticate('local', _onPassportAuth.bind(this, req, res))(req, res);
     },
 
-    /**
-     * Authorization via social networks
-     * @param req Request object
-     * @param res Response object
-     */
-    social: function (req, res) {
-        var type = req.param('type') ? req.param('type').toLowerCase() : '-';
-        var strategyName = [type, 'token'].join('-');
 
-        if (Object.keys(passport._strategies).indexOf(strategyName) === -1) {
-            return res.badRequest(null, null, [type.slice(0, 1).toUpperCase(), type.slice(1), ' is not supported'].join(''));
-        }
-
-        passport.authenticate('jwt', function (error, user) {
-            req.user = user;
-            passport.authenticate(strategyName, _onPassportAuth.bind(this, req, res))(req, res);
-        })(req, res);
-    },
 
     /**
      * Accept JSON Web Token and updates with new one

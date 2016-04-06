@@ -16,20 +16,10 @@ module.exports = {
           type: "integer",
           required: true
       },
-      createdAtDate: {
-          type: "date",
+      eatenAt: {
+          type: "datetime",
           required: true
-      },
-      createdAtTime: {
-          type: "integer",
-          required: true,
-          default: 0
-          
-      },
-      createdBy: {
-          model: 'User',
-          index: true
-      },
+      },      
       owner: {
           model: 'User',
           index: true
