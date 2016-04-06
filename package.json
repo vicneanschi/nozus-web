@@ -24,7 +24,9 @@
   },
   "scripts": {
     "start": "node app.js",
-    "debug": "node debug app.js"
+    "debug": "node debug app.js",
+    "test": "node ./node_modules/mocha/bin/mocha test/bootstrap.test.js test/integration/**/*.test.js",
+    "cover": "node ./node_modules/istanbul/lib/cli.js cover --report html -x \"**/config/**\" ./node_modules/mocha/bin/mocha -- --timeout 5000 test/bootstrap.test.js test/integration/**/*.test.js"
   },
   "main": "app.js",
   "repository": {
@@ -32,5 +34,10 @@
     "url": "https://github.com/eswann/nozus-web.git"
   },
   "author": "anonymous node/sails user",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "supertest": "^1.2.0"
+  }
 }
